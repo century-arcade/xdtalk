@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How a File Format Led to a Crossword Scandal</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+          position: absolute;
+          bottom: 3em;
+          right: 7em;
+      }
+      .image-50 img {
+          width: 70%;
+      }
+
+      /* Two-column layout */
+            .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+
+      pre {
+          font-size: 0.8em;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+The story thus far
+---
+@datageneral tweet
+---
+538 article
+---
+       `#gridgate`
+---
+CBS news
+---
+wikipedia edit war
+---
+USAToday boycott
+---
+editor of USAToday crossword fired
+
+- had been engaging in self-plagiarism
+- on a grand scale
+- over a period of 6 years
+---
+- Published crosswords are readily available
+- even historical ones
+- why did it go undiscovered for so long?
+---
+"If you get the data into a nice, clean, dense form, stuff just falls out of it."
+    -- me
+---
+class: center, middle
+
+## How a
+# File Format
+## led to a
+# Crossword Scandal
+
+
+.image-50[![crossword-scandal](images/crossword-scandal.png)]
+
+.footnote[Saul Pwanson]
+.footnote[@saulfp]
+.footnote[xd.saul.pw]
+
+---
+# Motivation
+
+- amateur crossword constructor
+- frustrating and tedious
+- wanted to get better
+- software engineer
+- what else would you expect
+---
+# xwordinfo
+
+- NYTimes puzzles
+- wanted to bulk download their data
+- "no"
+---
+# xwordinfo
+
+- i can just scrape it
+---
+# xwordinfo
+
+- i can "just" scrape it
+---
+# xwordinfo
+
+- i can "just" scrape it
+- 25,000 puzzles
+- all puzzles, back to 1942
+- David Steinberg and the PSPP
+---
+# Once and For All
+---
+# Once and For All
+
+- archive data for any future crossword scholars
+- copyright expires 95 years after publication
+- the longer we wait, the harder it becomes
+---
+
+# 1. HPF
+
+# 2. ???
+
+# 3. Profit!
+---
+# High Potential Format (HPF)
+
+- neat
+- clean
+- dense
+---
+# existing crossword formats
+
+- .puz (de facto standard, proprietary)
+- .xpf (XML)
+- .ipuz (JSON)
+- .txt (SGML, fragile)
+---
+# Custom Archival Format
+
+- metadata alongside data
+- 1 file per crossword
+- simple to parse
+- mnemonic, predictable shelving id
+- hand-editable
+- stable
+---
+# .xd format
+
+layout: false
+.left-column[
+    ## The format
+]
+
+.right-column[
+    <pre>
+    Title: New York Times, Saturday, January 1, 1955
+    Author: Anthony Morse
+    Editor: Margaret Farrar
+    Rebus: 1=HEART 2=DIAMOND 3=SPADE 4=CLUB
+    Date: 1955-01-01
+
+    1ACHE#ADAM#2LIL
+    BLUER#GULL#MATA
+    EATIN#APEX#ICER
+    ATAR#TILE#SNEAK
+    TEN#MANI#ITE###
+    ##DRUB#CANASTAS
+    FADED#BAGGY#OIL
+    ONES#KATES#TUNA
+    ETA#JOKER#JORUM
+    SILLABUB#SOON##
+    ###ACE#RUIN#ARK
+    3WORK#JINX#4MAN
+    BIRD#WADS#SCENE
+    ISLE#EDGE#PANEL
+    DEER#BEET#ARTEL
+
+
+    A1. Sadness. ~ HEARTACHE
+    A6. Progenitor. ~ ADAM
+    A10. Mae West stand-by. ~ DIAMONDLIL
+    [...]
+
+    D1. Vital throb. ~ HEARTBEAT
+    D2. Having wings. ~ ALATE
+    D3. Start the card game. ~ CUTANDDEAL
+    [...]
+    </pre>
+
+]
+---
+# Stable
+
+If two people litz the same puzzle accurately,
+the results should be byte-for-byte identical.
+---
+# Scraping Montage
+
+- all NYT puzzles (1942-2016): 24,000
+- 10 years of USA Today (2006-2016): 3,650
+- 10 years of Universal Crossword Syndicate (2006-2016): 3,650
+- 6 months of LATimes (180)
+---
+# ETL
+
+- separate Extract from Transform
+- save raw source data
+- Transform always iterative
+---
+# gxd
+
+- 30k crosswords
+- organized on filesystem
+- .xd text format
+- :D
+---
+# will I ever be happy?
+
+- busy at work
+- scraping/etc was exhausting
+- bored with project
+---
+- posted .zip to Reddit r/datasets
+- maybe an hour or two...
+---
+# Tools used for initial exploration
+- familiar command-line tools
+   - grep
+   - sort
+   - diff (meld)
+   - python
+---
+# 
+- anomalies right away
+- pulled on a thread
+- led to another, and another
+- that weekend is a blur
+---
+# /diffs
+- thrown together
+- list sorted by % grid similarity
+---
+# email to cruciverb-l
+---
+# Anomaly 1
+
+NYT puzzle, 1955 vs 1984
+---
+# Anomaly 1
+
+NYT puzzle, 1955 vs 1984
+
+- `hd = difflib.HtmlDiff()`
+- `hd.make_table(xd1, xd2)`
+---
+# Anomaly 2
+---
+# Anomaly 3
+
+USA Today puzzle
+
+Liz Gorski and Tim Burr
+---
+# Anomaly 3
+
+USA Today puzzle
+
+- "Timothy Parker might be a little loose with attribution"
+---
+# The Response
+- cruciverb discussion and apologists
+- Tausig tweet
+- ollie roeder contacted me
+---
+# People had taken a interest
+
+- I wanted moar crosswords
+- asked creator of a large clue db for his data
+- he asked his source for permission to share
+---
+# Holy forking shirtballs
+
+- the motherlode
+- 80k crosswords in .puz
+- "largest collection of crosswords on the planet"
+---
+# Shoutout to Barry Haldiman
+
+- was collecting diligently for 20 years
+- saved everything in source format!
+- organization was hit-and-miss
+---
+# That Week Was a Blur
+
+- ingested 1000s more crosswords
+- compared grids exhaustively
+   - optimized to 1sec/grid
+- organizing 50k is a challenge under pressure
+---
+# /xdiffs
+
+- organized by publisher
+  - with subtotals
+- live when 538 article launched
+- 10 days since post to r/datasets
+---
+# 15 minutes of fame
+
+- stressful
+- time consuming
+- story more important than facts
+- everyone loves a scandal
+- I wasn't prepared
+---
+# Aftermath
+
+## public
+- #gridgate
+- boycott
+- "fired"
+
+## me
+- kept working
+- importing haldiman collection
+- pipeline
+- visualization
+---
+# my janky pipeline
+
+- all code on github
+- Python3 only
+- a bit painful with no dependencies
+  - sqlite
+- pipeline still running today
+  - 1 hour each night
+  - scrape, convert, compare, generate website (1GB)
+  - entire project hosted for less than $10/year on AWS
+---
+# visualization
+
+xd.saul.pw
+
+- scope of collection
+- scope of plagiarism
+- show by comparison
+---
+# visualization
+
+- X-axis: years
+- Y-axis: publications
+- color: duplications
+  - yellow: reprints
+  - pink: grids 25-50% similar (theme copying)
+  - red: different attributions, grids > 50% similar
+- bar graphs: visually comparable quantity
+---
+# visualization takeaway
+
+- egregious
+  - other instances completely overwhelmed
+- not doing it anymore in 2016
+- USAToday saturday reprints
+   - not obvious before breakout by d-o-w
+---
+# visualization is explorable
+
+xd.saul.pw/usa2011
+- whole pub-year
+---
+# visualization is explorable
+
+xd.saul.pw/specific puzzle
+
+- finally looks decent
+- can still see .xd structure underneath
+- even `~` still in clues
+---
+# conclusions and open questions
+
+- guilty in the large
+- public perception incorrect
+- caught by covering tracks
+- motivation was not just laziness...
+---
+# One more anomaly
+
+usa2011-11
+up2011-11
+
+- 34 puzzles in a row by Marjorie Richter
+- not an accident
+- he singled her out, but she never would have known
+---
+# Where are they now?
+
+- ollie roeder earned his nerd cred
+- Timothy Parker still editing crosswords for Universal, though not USAToday
+- me
+  - embedded data pipeline for bionic leggings
+  - VisiData powerful data exploration tool
+---
+# Future of xd project?
+
+- still running on its own
+- lots more could be done with it
+- ~1 million crosswords published...ever
+---
+# looking for a responsible steward
+  - crossword nut
+  - data nerd
+  - librarian
+  - sysadmin
+
+If you are interested, contact me:
+
+# xd@saul.pw
+---
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
