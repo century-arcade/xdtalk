@@ -1,0 +1,95 @@
+h2 {
+    margin-top: .3em;
+    margin-bottom: .3em;
+}
+
+#grid table {
+    display: table;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: .5px solid black;
+    border-left: .5px solid black;
+    border-spacing: 0px;
+    margin-left: 0px;
+}
+
+#main {
+    border-spacing: 0px;
+    width: 42em;
+}
+
+#main td {
+    padding: 0;
+}
+
+#grid td {
+    position: relative;
+    display: table-cell;
+    min-width: 26px;
+    height: 26px;
+    border-top: 1.5px solid black;
+    border-left: 1.5px solid black;
+    vertical-align: top;
+    padding: 0;
+}
+
+#grid td span {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+#grid td .cell{
+    position: absolute;
+    top: 8px;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: blue;
+    text-transform: uppercase;
+}
+
+#grid td .number {
+    padding-left: 2px;
+    padding-top: 0;
+    text-align: left;
+    font-weight: bold;
+    font-family: serif;
+    font-size: 10px;
+}
+
+#notes {
+    vertical-align: top;
+}
+
+#notes {
+    text-align: justify;
+}
+
+#leftclues {
+    width: 19em;
+}
+
+#notes, #bottomclues {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    columns: 14em;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.clue {
+    margin-top: 0;
+    margin-bottom: 2px;
+    font-size: 14px;
+}
+
+.blockinner {
+    position: relative;
+}
+
+.blockinner img {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
