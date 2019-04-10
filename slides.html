@@ -46,7 +46,7 @@
           bottom: 3em;
           right: 7em;
       }
-      .em2 .remark-code { font-size: 2em; }
+      .em2 .remark-code-line { font-size: 1.2em; }
       .image-70 img { width: 70%; }
       .image-80 img { width: 80%; }
       .image-90 img { width: 90%; }
@@ -311,11 +311,11 @@ class: center
 
 - **puz**: binary, proprietary
 
+- **txt**: text with &lt; TAGS &gt;
+
 - **xpf**: XML
 
 - **ipuz**: JSON
-
-- **txt**: text with &lt; TAGS &gt;
 
 ???
 - like a good engineer
@@ -358,8 +358,9 @@ class: center
    - they would get identical .xd files with an identical id
    - the results should be byte-for-byte identical.
 ---
-## nyt1955-01-01.xd
+## **nyt1955-01-01**.xd
 
+.em2[
 ```
 Title: New York Times, Saturday, January 1, 1955
 Author: Anthony Morse
@@ -408,16 +409,19 @@ DEER#BEET#ARTEL
     [...]
 ```
 ]
+]
 ???
 - this is the .xd format I designed
 - first, notice the id: nyt, a 3-letter code for nytimes, and then the date, Y-M-D
    - id has some nice properties, like easy to sort, easy to split, easy to type
-- looks pretty similar to the acrosslite txt format
-- with some key differences
+- actually looks pretty similar to the acrosslite txt format
+- but there are some key differences that we'll get to
+
 - crosswords basically have 3 sections
 ---
 ## nyt1955-01-01.xd
 
+.em2[
 <b>
 ```
 Title: New York Times, Saturday, January 1, 1955
@@ -467,6 +471,7 @@ DEER#BEET#ARTEL
     A26. Administer a sound defeat. ~ DRUB
     [...]
 ```
+]
 ]
 ???
 - 1) metadata, at the top
@@ -474,6 +479,7 @@ DEER#BEET#ARTEL
    - standard crossword keys: title, author, editor, date, copyright
    - extensible by using other metadata keys, like "Rebus" as you can see in this puzzle
 ---
+.em2[
 ## nyt1955-01-01.xd
 ```
 Title: New York Times, Saturday, January 1, 1955
@@ -525,6 +531,7 @@ DEER#BEET#ARTEL
     A26. Administer a sound defeat. ~ DRUB
     [...]
 ```
+]
 ]
 ???
 - 2) then there's the grid
@@ -532,6 +539,8 @@ DEER#BEET#ARTEL
    - applies to 98% of puzzles
    - with Rebus metadata, that covers 99.9% of puzzles
 ---
+
+.em2[
 ## nyt1955-01-01.xd
 
 ```
@@ -584,6 +593,7 @@ DEER#BEET#ARTEL
     [...]
 ```
 </b>
+]
 ]
 ???
 - 3) finally, there are the clues
@@ -674,12 +684,10 @@ class: center
 class: middle, center
 # Sometimes I play chicken with myself
 ???
-- well, after I k
-- when I sent it out into the world
-- that gave me enough motivation to 
-- I saw it from their perspective
+- but when I sent it out into the world
+- that apparently inspired me enough to play with the data a little
 - clean dataset makes for easy exploration
-- like nerd-sniping
+- like nerd-sniping; i kind of nerd-sniped myself
 - and decided I could look for an hour or two
 ---
 class: center
@@ -709,7 +717,6 @@ class: center
 - which come standard on any linux or os/x system
 - and work great with simple text
 - and I wrote a "query" against my "database"
-- (this takes a few seconds)
 ---
 # Identical rows?
 
@@ -834,6 +841,7 @@ hd.make_table(xd1, xd2)
 - linking to those scrappy diffs that we just saw
 ---
 ### email to cruciverb-l
+### (3 days after r/datasets)
 
 <blockquote>
 "I found some <b>pairs of crosswords that are strikingly similar</b>...
@@ -889,17 +897,17 @@ class: center
 ???
 - collected diligently over 20 years
 - saved everything in source .puz!
----
-class: center
 
-# The data was always there
-
-- but it was not public
-
+- so the data was always "available"
+- but it was not really public, because it was not accessible
+- even barry's collection, which other people had access to
 - not bulk-analysis friendly
-
 - had not been organized
 
+---
+class: middle, center
+
+# (5 days after r/datasets)
 ???
 - I spent the next week, before the 538 article was published
 - ingesting 1000s more crosswords with my janky pipeline
@@ -910,6 +918,7 @@ class: center
 - optimized to 1s/grid
 - managing 50,000 of anything is challenging
 - esp under time pressure
+
 ---
 class: center
 ## Take 2: xd.saul.pw/xdiffs
@@ -943,6 +952,7 @@ class: center
 - people cared about the scandal, not the process, nor the facts
 - story > facts
 - I wasn't prepared
+- i don't have any regrets though
 ---
 class: center
 # 15 minutes of fame
@@ -1028,20 +1038,30 @@ xd.saul.pw/specific puzzle
 - can still see .xd structure underneath
 - even `~` still in clues
 
-- okay, so he stole puzzles from himself and falsified attribution many times
-- he's just a greedy hack, right?
-- but that's not quite all of it...
-- here's one more anomaly that I haven't yet figured out
+- this puzzle was not reprinted once, but 4 separate times
+- the final one (that I saw), was actually a legitimate reprint of the first instance
+- it's the ones in the middle
+- in 2005 reprinted under a false name with a corner changed
+- again in 2006 a third of the puzzle changed, attributed to mr. tim burr
+- and then the puzzle was gutted and the theme reused in 2009
+- you can tell that the theme wasn't reproduced independently, because the black squares are also identical
+
 ---
+exclude: true
 class: center
 ### One more anomaly
 
 .image-100[![comparison](images/univ2011-11.png)]
 ???
+- okay, so he stole puzzles from himself and falsified attribution many times
+- he's just a greedy hack, right?
+- but that's not quite all of it...
+- here's one more anomaly that I haven't yet figured out
 
 - from USAToday Nov 2011
 - all of these puzzles were originally by Marjorie Richter
 ---
+exclude: true
 class: center
 ### One more anomaly
 .image-100[![comparison](images/usa2011-11.png)]
@@ -1054,30 +1074,56 @@ class: center
 - this is the biggest mystery remaining for me
 ---
 class: center
-# Future?
+# Where are they now?
 
-<br/>
+- Timothy Parker still editing
+- xd still running
+- lots more could be done
+- I have new awesome projects
 
-.image-70[![visidata](images/vdlogo.png)]
 ???
-- I have a job, and other projects
-- still running autonomously
-- lots more could be done with this data
-- linguistics, history, culture
+
+- In conclusion, where are we now?
+- Mr. Parker is still editing crosswords at Universal
+  - which is still syndicated in many newspapers, including the Seattle Times
+- there is an ongoing need for a crossword watchdog
+- xd is still running autonomously, but with minimal input and no audience
+- so even if it caught more duplications, no one would actually know
+- additionally, lots more could be done with this data
+  - could have relevance for people interested in linguistics, history, culture
+- but I have a job, and other projects like the awesome data exploration tool VisiData
+
 ---
 class: center
-# Future?
-## I would love to pass the torch
-----
-<br/>
-## If you or someone you know is interested:
-## xd@saul.pw
-???
+
+# Anyone interested?
+
   - crossword nut
   - data nerd
   - librarian
   - sysadmin
 
+???
+- so I don't have a whole lot of time to move this project forward
+- but if anyone is interested in picking up an epic dataset and finding more patterns
+- if you're a crossword nut, data nerd, librarian, sysadmin,
+
+---
+class: center
+# Thanks for listening
+
+<br/>
+## Saul Pwanson
+<br/>
+## email: xd@saul.pw
+## twitter: @saulfp
+## www: visidata.org
+
+???
+- please, talk to me!  let's see what we can do.
+
+- thanks for listening to my talk!
+- remember, don't read the comments and don't feed the trolls.
     </textarea>
     <script src="remark-latest.min.js">
     </script>
