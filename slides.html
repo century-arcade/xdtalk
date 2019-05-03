@@ -71,6 +71,14 @@
       .remark-code-line {
           font-size: 2em;
       }
+
+      .image-tw img {
+          width: 100px;
+      }
+
+      span.callout {
+           background: yellow;
+      }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     </style>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -119,7 +127,10 @@ class: center
 - and published an article in the well-known data blog, 538.
 ---
 class: center, middle
-<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">i&#39;m told the Tim Parker/<a href="https://twitter.com/hashtag/gridgate?src=hash&amp;ref_src=twsrc%5Etfw">#gridgate</a> crossword scandal will have a segment on CBS Evening News tonight. <br><br>our story: <a href="https://t.co/ESGdwQ9wv2">https://t.co/ESGdwQ9wv2</a></p>&mdash; Oliver Roeder (@ollie) <a href="https://twitter.com/ollie/status/706562132154908673?ref_src=twsrc%5Etfw">March 6, 2016</a></blockquote>
+
+.image-tw[![](images/twitter-logo.png)]
+
+<blockquote class="titter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">i&#39;m told the Tim Parker/<a href="https://twitter.com/hashtag/gridgate?src=hash&amp;ref_src=twsrc%5Etfw">#gridgate</a> crossword scandal will have a segment on <span class="callout">CBS Evening News</span> tonight. <br></p>&mdash; Oliver Roeder (@ollie) <a href="https://twitter.com/ollie/status/706562132154908673?ref_src=twsrc%5Etfw">March 6, 2016</a></blockquote>
 ???
 - It blew up into hashtag gridgate
 - and was in the mainstream news for a cycle.
@@ -615,6 +626,7 @@ class: center
 ## (2 months)
 ???
 - so then I put the format into action
+- if they made a movie about this, this is where the montage would go
 - made a janky pipeline to scrape, convert, and shelve crosswords
 - I got the 24,000 puzzles from xwordinfo
 - i found other public crossword sites and scraped them
@@ -956,15 +968,9 @@ class: center
 - people cared about the scandal, not the process, nor the facts
 - story > facts
 - I wasn't prepared
-- i don't have any regrets though
----
-class: center
-# 15 minutes of fame
+- i don't really have any regrets, except one...
 
-# (no ragrets)
-
-???
-- well, i do kind of regret that i
+- i kind of regret that i
 - didn't have something to sell
 - not merchandise, stickers--though that might be something
 - i mean my own career and story
@@ -993,15 +999,15 @@ class: center
 ---
 ## github.com/century-arcade/xd
 
-- Python3, no dependencies
+- Python3
 
-- pipeline still running today
+- Amazon Web Services
 
-- $10/year on AWS
+- $10/year
+
 ???
-- painful without deps
-- sqlite
-- entire project hosted for less than $10/year on AWS
+- no dependencies
+- I figured out how to host the entire project on AWS for less than $10/year
 ---
 ## visualization - xd.saul.pw
 
@@ -1150,32 +1156,43 @@ DEER#BEET#ARTEL
 - if i had gone looking for it, i could have found it with other formats
 - but this made it so trivial to do some explorations, that it just 'fell out'
 
+- There's some low hanging fruit out there
+- When you don't know what you're looking for, I advocate a format-first approach
+- make data analysis easy, frictionless
+- and let me know what just falls out of it
+
 
 ---
-class: center
+class: middle, center
+
+
+???
+
+---
+exclude: true
+class: middle, center
 # Where are they now?
 
-- Timothy Parker still editing
-- xd still running
-- lots more could be done
-- I have new awesome projects
+- Timothy Parker
+- xd
+- me
 
 ???
 
 - In conclusion, where are we now?
-- Mr. Parker is still editing crosswords at Universal
+- Mr. Parker is still editing crosswords [at Universal]
   - which is still syndicated in many newspapers, including the Seattle Times
-- there is an ongoing need for a crossword watchdog
 - xd is still running autonomously, but with minimal input and no audience
-- so even if it caught more duplications, no one would actually know
-- additionally, lots more could be done with this data
-  - could have relevance for people interested in linguistics, history, culture
+- there are several thousand more crosswords in the haldiman collection to import
 - but I have a job, and other projects like the awesome data exploration tool VisiData
 
 ---
 class: center
-# Where are they now?
+# Where are we now?
 
+- Timothy Parker
+- xd
+- Saul Pwanson
 - Timothy Parker still editing
 - xd still running
 - lots more could be done
@@ -1186,8 +1203,13 @@ class: center
 ???
 
 - but I have a job, and other projects like the awesome data exploration tool VisiData
-
+- so I don't have a whole lot of time to move this project forward
+- but, if anyone wants to play at being a crossword librarian and import some puzzles
+- or play with an epic dataset
+- crossword nut, data nerd, librarian, sysadmin,
+- but if anyone is interested in picking up an epic dataset and finding more patterns
 ---
+exclude: true
 class: center
 
 # Anyone interested?
@@ -1198,9 +1220,6 @@ class: center
   - sysadmin
 
 ???
-- so I don't have a whole lot of time to move this project forward
-- but if anyone is interested in picking up an epic dataset and finding more patterns
-- if you're a crossword nut, data nerd, librarian, sysadmin,
 
 ---
 class: center
