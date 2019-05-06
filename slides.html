@@ -106,20 +106,18 @@ class: middle
 ---
 class: center
 
-<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">Had a xword in USA Today 2004. They tweaked it in 2008 w/pseudonym. Then ran it AGAIN in 2015. Seedy business indeed <a href="https://t.co/MwIe70YIs6">pic.twitter.com/MwIe70YIs6</a></p>&mdash; Ben Tausig (@datageneral) <a href="https://twitter.com/datageneral/status/702973432745615360?ref_src=twsrc%5Etfw">February 25, 2016</a></blockquote>
+.image-tw[![](images/twitter-logo.png)]
 
-## Ben Tausig
-#### American Values Club crossword editor
+<blockquote class="titter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">Had a xword in USA Today 2004. They tweaked it in 2008 w/pseudonym. Then ran it AGAIN in 2015. Seedy business indeed </p>&mdash; Ben Tausig (@datageneral) <a href="https://twitter.com/datageneral/status/702973432745615360?ref_src=twsrc%5Etfw">February 25, 2016</a></blockquote>
+
 
 ???
 
-- and a crossword editor posted a tweet
+ the editor of the American Values Club crossword posted a tweet
 - "Had a crossword in USA Today in 2004, They tweaked it in 2008 w/pseudonym.  Then ran it AGAIN in 2015.  Seedy business indeed."
 
 ---
 class: center
-
-## 538 article
 
 .image-70[![crossword-scandal](images/crossword-scandal.png)]
 ???
@@ -345,9 +343,9 @@ class: center
    - meh
 - so like a bad engineer
 ---
+class: center
 # Custom Archival Format
 
-- simple to parse
 
 - mnemonic, reversible id
 
@@ -355,20 +353,8 @@ class: center
 
 - stable
 
+- simple to parse
 ???
-- i decided to make my own format
-- specifically for archival and analysis
-- like the other formats, each crossword would be in its own file, with self-contained meta-data along-side the data
-   - this is good data locality
-- would be very easy to parse
-   - ideally self-evident structure
-- mnemonic and reversible id for shelving
-- robust to hand-editing
-   - since some parsing issues can't be resolved automatically
-- finally, it would ideally be 'stable'
-   - if multiple people 'litzed' the same crossword from the same source,
-   - they would get identical .xd files with an identical id
-   - the results should be byte-for-byte identical.
 ---
 ## **nyt1955-01-01**.xd
 
@@ -423,13 +409,22 @@ DEER#BEET#ARTEL
 ]
 ]
 ???
-- this is the .xd format I designed
-- first, notice the id: nyt, a 3-letter code for nytimes, and then the date, Y-M-D
-   - id has some nice properties, like easy to sort, easy to split, easy to type
-- actually looks pretty similar to the acrosslite txt format
-- but there are some key differences that we'll get to
+- i decided to make my own format
+- specifically for archival and analysis
 
-- crosswords basically have 3 sections
+- this is the .xd format I designed
+
+- it's really just a carefully constructed text file
+- but/so it's very easy to parse
+   - the structure and format is self-evident
+
+- each crossword is self-contained within its own file, along with its metadata
+
+- id is mnemonic and easy to type--a short and recognizable abbreviation for each publication, along with the date
+- using ISO dates Y-M-D this is sortable
+- overall this id has been great shelving
+
+- inside the file, crosswords basically have 3 sections
 ---
 ## nyt1955-01-01.xd
 
@@ -489,7 +484,7 @@ DEER#BEET#ARTEL
 - 1) metadata, at the top
    - key colon value pairs
    - standard crossword keys: title, author, editor, date, copyright
-   - extensible by using other metadata keys, like "Rebus" as you can see in this puzzle
+   - extensible by using other metadata keys, like "Rebus" for puzzles which have grid squares with a symbol or more than one letter in them
 ---
 .em2[
 ## nyt1955-01-01.xd
@@ -547,9 +542,9 @@ DEER#BEET#ARTEL
 ]
 ???
 - 2) then there's the grid
-   - one utf-8 character per square
-   - applies to 98% of puzzles
-   - with Rebus metadata, that covers 99.9% of puzzles
+   - one character per grid square
+   - this handles 98% of puzzles
+   - with the Rebus mentioned above, that covers 99.9% of crossword grids
 ---
 
 .em2[
@@ -613,6 +608,15 @@ DEER#BEET#ARTEL
    - clues are self-contained, one per line
    - including the dir/number
    - and the ANSWER, after a ~ tilde
+
+
+- this format is 'stable'
+   - if multiple people 'litzed' the same crossword from the same source,
+   - they would get identical .xd files with an identical id
+
+- this format robust to hand-editing
+
+
 ---
 class: center
 # Scraping Montage
@@ -651,7 +655,7 @@ class: center
 class: center
 # gxd
 
-- 30k crosswords
+- 30,000 crosswords
 
 - organized on filesystem
 
@@ -666,14 +670,9 @@ class: center
 - this is all I wanted in the first place
 - so I should be happy, right?
 ---
-class: center
+class: middle,center
 # But am I ever happy?
 
-- scraping/etc was exhausting
-
-- got busy at work
-
-- bored with project
 ???
 - but instead, I was tired
 - things had started getting busy at work
@@ -894,25 +893,19 @@ class: middle, center
 class: center
 # The motherlode
 
-- 80k crosswords in .puz
+- 80,000 crosswords in .puz
 
-- "largest collection of crosswords on the planet"
+- Thanks to Barry Haldiman
+
 ???
 
 - holy forking shirtballs
 - I thought 30,000 crosswords was a lot
 - This collection had almost 80,000 puzzles in it
----
-class: center
-## Shoutout to Barry Haldiman
 
-- 20 years of puzzles
-
-- all saved in source .puz
-
-???
-- collected diligently over 20 years
-- saved everything in source .puz!
+- a shoutout to Barry Haldiman,
+- who collected crosswords diligently for over 20 years
+- and saved everything in the source .puz format!
 
 - so the data was always "available"
 - but it was not really public, because it was not accessible
@@ -1204,10 +1197,10 @@ class: center
 
 - but I have a job, and other projects like the awesome data exploration tool VisiData
 - so I don't have a whole lot of time to move this project forward
-- but, if anyone wants to play at being a crossword librarian and import some puzzles
-- or play with an epic dataset
-- crossword nut, data nerd, librarian, sysadmin,
-- but if anyone is interested in picking up an epic dataset and finding more patterns
+- but, if anyone is interested in playing with an epic dataset
+- or wants to play at being a crossword librarian and import some puzzles
+- this is the "largest collection of crosswords on the planet"
+
 ---
 exclude: true
 class: center
