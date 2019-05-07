@@ -86,7 +86,6 @@
   </head>
   <body>
     <textarea id="source">
-
 ???
 - Thank you for having me
 - grateful for being able to share this story with you
@@ -112,17 +111,17 @@ class: center
 
 
 ???
-
- the editor of the American Values Club crossword posted a tweet
+- a tweet was posted
 - "Had a crossword in USA Today in 2004, They tweaked it in 2008 w/pseudonym.  Then ran it AGAIN in 2015.  Seedy business indeed."
+- that was from the editor of the American Values Club crossword
 
 ---
 class: center
 
 .image-70[![crossword-scandal](images/crossword-scandal.png)]
 ???
-- Oliver Roeder spun it into a plagiarism scandal
-- and published an article in the well-known data blog, 538.
+- soon after, an article was published in 538
+- spinning it into a plagiarism scandal
 ---
 class: center, middle
 
@@ -153,7 +152,6 @@ class: center
 - had been engaging in plagiarism
 - on a grand scale
 - for several years
-- and was eventually fired.
 ---
 class:center, middle
 
@@ -182,7 +180,7 @@ class:middle
 - the 538 article hints at it w/ something I said
 - "when you get data into a nice, clean, dense form, stuff just falls out of it"
 -  I said this off-the-cuff, but it's an accurate statement of the thesis I was testing at the time
-- the format and organization were instrumental, maybe essential, to the discovery and decisive outcome
+- the format and organization were instrumental, maybe essential, to the discovery and end result.
 ---
 class: middle, center
 ### How a
@@ -203,8 +201,8 @@ class: middle, center
 .image-100[![motivation](images/motivation.jpg)]
 
 ???
-It all started when
-- I tried my hand at crossword construction
+- My original motivation for looking into crossword data was benign
+- I had tried my hand at crossword construction
 - frustrating and tedious
 - wanted to get better
 - software engineer
@@ -223,7 +221,17 @@ class: center
 
 - there is a site, xwordinfo
 - which makes ALL of the NYTimes puzzles available
+- over 24,000 puzzles dating back to 1942
+
+- This is thanks to 3 years of work by the Pre-Shortzian Puzzle Project
+- led by David Steinberg, who was a teenager at the time,
+- a group of several hundred crossword enthusiasts, spent 3 years
+- digging into microfiche and transcribing every NYT puzzle that had ever been published
+
+- This is a great source of data
 - I emailed and asked to download their data in bulk
+- I got a very nice reply from Jeff Chen, who runs the site and is very active in the crossword community
+- and the reply was very polite, but it said, in essence,
 ---
 
 class: center
@@ -231,26 +239,26 @@ class: center
 
 # "no"
 ???
-- Jeff Chen sent me a very polite "no"
 
+- "no".
+
+- So as trivial as crosswords are,
+- the collection of historical crossword data is exceedingly non-trivial,
+- and even in this case, having the lion's share of the work already done
+- concerns about copyright were going to make it unnecessarily difficult for me.
 ---
 class: center
 # xwordinfo.com
 
 - I can "just" scrape it
 
-- 25,000 puzzles back to 1942
-
-- Thanks to 3 years of work by David Steinberg and PSPP
 ???
-- I could just scrape it
-- but scraping is a pain
-- They have 25k puzzles (back to 1942)
-- BTW, a major shoutout to David Steinberg, who was in high school when he organized a group of hundreds of crossword enthusiasts over 3 years
-- and they transcribed "litzed" all puzzles from 1942-1993 (when Will Shortz started the "digital age of crosswords"
-- so collection of crossword data is non-trivial, and even having the major work already done, it was still going to be a pain for me
-
-- and if something is a pain for me, rather than cut corners and do the minimum, I double down
+- I am not one to be so easily discouraged.
+- After all, I can just scrape it
+- but scraping is a pain, and I was sick of doing one-off data collections
+- it would really be too much work to do it just for my little experiment in crossword construction.
+- so I decided to double down
+- and do it -- once and for all
 
 ---
 class: center
@@ -261,19 +269,11 @@ class: center
 - gift to future scholars
 ???
 - I decided that I wanted to archive this data for posterity
-- the data is currently scattered on many sites
-  - the xwordinfo only has NYTimes crosswords.
-  - there are many other publications that have their own crosswords
-- and, the data is in many different formats, some of which are difficult to parse
-- or the parsing can't even be automated, because of encoding errors upon encoding errors
-- a gift for future crossword scholars
-
-??
-- so i realized i had to collect the data myself
-- but i can't do things just for myself (don't really like myself enough to do it just for me)
-- so i motivate myself to do it for someone in the future who may appreciate it
-- this data is already public, and for good reason.  now it needs to be in a data-ready form!
-
+- xwordinfo only has NYTimes crosswords.
+- there are many other publications that have their own crosswords
+- but that data is scattered across many sites
+- and, the data is in many different formats, some of which are quite difficult to parse
+- so this would be a gift to future crossword scholars
 
 ---
 
@@ -308,9 +308,9 @@ class: center
   - remember, it's not hoarding if it's organized
 - clean
   - properly decoded
-  - structurally correct
-  - ready for grouping, sorting
   - trustworthy as a source
+  - structurally correct
+  - ready to be grouped and sorted
 - dense
   - exhibits high data locality
   - on any axis that data can be sliced, it's reasonably easy to slice it that way
@@ -342,19 +342,6 @@ class: center
 - ipuz is fairly new, and based on JSON
    - meh
 - so like a bad engineer
----
-class: center
-# Custom Archival Format
-
-
-- mnemonic, reversible id
-
-- hand-editable
-
-- stable
-
-- simple to parse
-???
 ---
 ## **nyt1955-01-01**.xd
 
@@ -415,14 +402,12 @@ DEER#BEET#ARTEL
 - this is the .xd format I designed
 
 - it's really just a carefully constructed text file
-- but/so it's very easy to parse
+- but it's very easy to parse
    - the structure and format is self-evident
 
-- each crossword is self-contained within its own file, along with its metadata
-
 - id is mnemonic and easy to type--a short and recognizable abbreviation for each publication, along with the date
-- using ISO dates Y-M-D this is sortable
-- overall this id has been great shelving
+  - here nyt means 'nytimes', and the date is in Y-M-D format, which makes it easily sortable in time
+- so overall this id has some good shelving properties
 
 - inside the file, crosswords basically have 3 sections
 ---
@@ -541,7 +526,8 @@ DEER#BEET#ARTEL
 ]
 ]
 ???
-- 2) then there's the grid
+- 2) then there's the **grid**
+   - the actual solution to the puzzle
    - one character per grid square
    - this handles 98% of puzzles
    - with the Rebus mentioned above, that covers 99.9% of crossword grids
@@ -612,9 +598,10 @@ DEER#BEET#ARTEL
 
 - this format is 'stable'
    - if multiple people 'litzed' the same crossword from the same source,
-   - they would get identical .xd files with an identical id
+   - they should get identical .xd files, and shelved under an identical id
 
-- this format robust to hand-editing
+- this format is also robust to hand-editing
+   - if a structural mistake is discovered, the original puzzle should be able to be reconstructed
 
 
 ---
@@ -631,12 +618,16 @@ class: center
 ???
 - so then I put the format into action
 - if they made a movie about this, this is where the montage would go
+   - (i don't know what song they would use though)
 - made a janky pipeline to scrape, convert, and shelve crosswords
 - I got the 24,000 puzzles from xwordinfo
 - i found other public crossword sites and scraped them
-- most sites only went back 6 months or a year; many syndications
-- found a site that had the past 10 years of USA Today puzzles
-- then found a universal crossword syndicated site that went back 10 years
+- most crossword sites only go back 6 months or a year; 
+- and there are many syndicated sites to wade through
+    - the same puzzles published on a staggered schedule
+- but, I found a site that had the past 10 years of USA Today puzzles
+- and then found a site that had crosswords going back 10 years from universal uClick (a major crossword syndication)
+- this took about 2 months of regular work in the evenings and on weekends
 ---
 exclude: true
 class: center
@@ -663,10 +654,10 @@ class: center
 
 - :D
 ???
-- so now I have the start of God's own crossword corpus
+- so now I had the start of God's own crossword corpus
 - 30,000 crosswords
-- organizated on the filesystem
-- in a simple text .xd format
+- organized on the filesystem
+- in a simple text format of my own design
 - this is all I wanted in the first place
 - so I should be happy, right?
 ---
@@ -691,13 +682,15 @@ class: middle,center
 - so i posted a link to the data to reddit in r/datasets
 - "to share it with people who can do better analysis than I can"
 - they are "organized and cleaned and reduced to their utter essence, in a carefully designed bulk text format"
+- i was proud of the work I had done
 - i just didn't have the energy to do anything more with it
 ---
 class: middle, center
 # Sometimes I play chicken with myself
 ???
-- but when I sent it out into the world
-- that apparently inspired me enough to play with the data a little
+- or so I thought
+- because when I sent it out into the world
+- that apparently inspired me enough to play with the data just a little
 - clean dataset makes for easy exploration
 - like nerd-sniping; i kind of nerd-sniped myself
 - and decided I could look for an hour or two
@@ -713,7 +706,7 @@ class: center
 - are they any patterns in grid fill?
 - maybe identical corners or sections?
 - then I thought, hey
--  it would be really easy to find if there are any duplicate full rows
+-  it would be really easy with this format to find if there are any duplicate full rows
 
 ---
 # Identical rows?
@@ -747,15 +740,17 @@ class: center
      [...]
 
 ???
-- this is literal output from that command
-- not a fancy database, but takes less than 5 seconds
+- which took less than 5 seconds to run
+- and this is literal output from that command
 
 - these are theme answers
 - themes are like the backbone of most crossword puzzles
 - the punny grammatical overreaches that make people groan
 - interesting slice of culture
+- you can see some familiar idioms, FLASH IN THE PAN, TOOTH AND NAIL
 - what is HASTYPUDDING?  anyone know?
-   - turns out it has a couple of meanings, i had never heard of it before
+   - i had never heard of it before
+   - turns out it has a couple of meanings, none of which are rude
 
 - looked into some of these duplications..
 - it looks like themes are not infrequently reused
@@ -771,8 +766,8 @@ class: center
 ```
 ???
 - okay, how about identical non-theme rows?
-- changed it slightly
-- this took another few seconds
+- changed the query slightly
+- this took another few seconds to complete
 ---
 # Identical non-theme rows?
 
@@ -792,7 +787,8 @@ class: center
 ???
 
 - turned out that many lines had duplicates in other puzzles
-- used another standard tool, diff, to compare the .xd files
+- but they were not reprints; only some of the lines were duplicated.
+- so i used another standard tool, diff, to compare the .xd files
 - pulled on that thread, which kept me going
 - led to another, and another
 - that weekend is kind of a blur
@@ -823,22 +819,24 @@ hd.make_table(xd1, xd2)
 ---
 .image-110[![timburr](images/liz-gorski-without.png)]
 ???
-- many of the puzzles had a common thread
+- here is another "anomaly" that I was very curious about
+- it turned that many of the puzzles had something in common
 ---
 .image-110[![timburr](images/liz-gorski.png)]
 ???
-    - edited by a "Timothy Parker"
-    - I knew nothing about the crossword industry
-    - I thought might be a fake name, a pseudonym for a syndicate of constructors
-    - until I found his Wikipedia entry and his claim of a Guinness record for "most syndicated constructor"
-    - I spent more than a few brain cycles trying to come up with reasons why his puzzles might be legitimately re-attributed
+- edited by a "Timothy Parker"
+   - who was the editor of both Universal uClick and USA Today crosswords
+- I knew nothing about the crossword industry
+- I thought might be a fake name, a pseudonym for a syndicate of constructors
+- until I found his Wikipedia entry and his claim of a Guinness record for "most syndicated constructor"
+- I spent more than a few brain cycles trying to come up with reasons why his puzzles might be legitimately re-attributed
 
 - this puzzle was the real clincher though
    - The puzzle on the right is from USA Today, 2013
    - by "Elizabeth Gorski", a prolific constructor
    - well-known and well-loved in the crossword community.
    - On the left, published by Universal uClick in 2006 (7 years earlier)
-   - by a fellow named "Tim Burr"
+   - attributed to someone named "Tim Burr"
    - what was going on?
    - why would a crossword syndicate publish an old crossword attributed to an obvious pseudonym,
    -  and change the attribution to someone who really existed?
@@ -852,7 +850,8 @@ hd.make_table(xd1, xd2)
 - I wrote a grid comparator and ran it over all the puzzles
 - I threw this list together to enumerate the "anomalies"
 - comprehensive, but minimum effort
-- sorted only by grid similarity
+- sorted simply by grid similarity
+- and I put it up on my website
 - linking to those scrappy diffs that we just saw
 ---
 ### email to cruciverb-l
@@ -874,21 +873,24 @@ hd.make_table(xd1, xd2)
 - I wondered if "Timothy Parker might be a little loose with attribution"
 - and "I present this as a curiosity"
 - was careful not to use the P-word
+- crosswords may be trivial, but the crossword community takes them very seriously
 ---
 class: middle, center
 # People took a interest
 
 ???
 - well, suffice to say, "people took a interest"
-- "You may be onto something here"
+- The first response was "You may be onto something here"
 - there was much discussion on the list and off
 - this is where Ben Tausig got his information, and posted to twitter as we saw in the intro
+
 - As the hubbub grew louder
-- I asked someone from the crossword list for the collection I knew he must have
-   - he publishes a huge clue/answer database once a quarter
-- i doubt he would have given it to me before #gridgate blew up
-- it's a shame that this data exists but is so difficult to obtain
-- well he "asked his source for permission", and then did give it to me
+- I took advantage of peoples' interest in my work.
+- Someone on the crossword list publishes a huge clue/answer database once a quarter
+- so I asked him for the collection of puzzles I knew he must have
+- he would not have given it to me before #gridgate blew up
+- but since it had, he "asked his source for permission", and then did give it to me
+- again, it's a shame that this data does exist but is so difficult to obtain
 ---
 class: center
 # The motherlode
@@ -907,12 +909,6 @@ class: center
 - who collected crosswords diligently for over 20 years
 - and saved everything in the source .puz format!
 
-- so the data was always "available"
-- but it was not really public, because it was not accessible
-- even barry's collection, which other people had access to
-- not bulk-analysis friendly
-- had not been organized
-
 ---
 class: middle, center
 
@@ -920,12 +916,14 @@ class: middle, center
 ???
 - I spent the next week, before the 538 article was published
 - ingesting 1000s more crosswords with my janky pipeline
-- discovering what directories and filenames meant
-- shelving properly in the xd corpus
-- managing near-dups
-- comparing grids exhaustively
-- optimized to 1s/grid
-- managing 50,000 of anything is challenging
+- discovering what directories and filenames meant in the motherlode
+- shelving crosswords properly in the xd corpus
+- figuring out the overlap between this collection and mine
+    - which was substantial but not total.
+
+- I compared grids exhaustively, night and day
+   - I would start a batch before going to sleep, and another before going to work
+- I discovered that week that managing 50,000 of anything is challenging
 - esp under time pressure
 
 ---
@@ -938,42 +936,41 @@ class: center
 
 ???
 
-- 50k crosswords
-- now organized by publisher
-- this is what was linked from 538 article
-- 10 days since post to r/datasets
-
----
-class: center
-## Take 2: xd.saul.pw/xdiffs
-
-.image-100[![xdiffs](images/xdiffs-usatoday.png)]
-???
+- this is the second iteration of results that I pushed online
+- now there were 50k crosswords
+- in this version
 - you can click through to each publisher
-- all these old urls are still available btw
+- and this is what was linked from 538 article
+- (all these old urls are still available, btw, because I take my responsbility as a data nerd seriously)
+- now at this point, it had been 10 days since I posted to reddit/datasets trying not to do the analysis work.
+- and for my failure in that regard, i got my 15 seconds of fame.
+
 ---
 class: center
-# 15 minutes of fame
+# 15 seconds of fame
 ???
 - stressful
 - time consuming
-- everyone loves a scandal
-- people cared about the scandal, not the process, nor the facts
-- story > facts
-- I wasn't prepared
-- i don't really have any regrets, except one...
+- many reporters contacted me, looking for a choice quote from me to put in their summary of the 538 article
+- beecause everyone loves a scandal, and the narrative had been set
+- so they weren't interested in the process, nor the nuanced facts.
+- I wasn't prepared for the onslaught.
+- I don't have many regrets,
 
-- i kind of regret that i
+- but i do kind of regret that i
 - didn't have something to sell
-- not merchandise, stickers--though that might be something
+- i don't mean merchandise, stickers, or anything to hasten my retirement
 - i mean my own career and story
-   - NPR
--  wasn't comfy w/ attention
-- hadn't groomed my online persona
-- by the time it happens it's too late
+   - the local NPR station figured out that I lived in seattle, and asked me to come on one of their radio programmes
+   - but at this point, having seen a bit behind the curtain, I had become very distrustful of the media
+- wasn't comfortable w/ attention
+- hadn't groomed my online persona in quite awhile
+- and by the time it happens it's too late
 - advice, be ready for the stampede
-- have a website, with a coherent self-view, and some way for people to engage on your terms.
+- have a website, with a coherent presentation, and some way for people to engage on your terms.
 - even if it's just "sign up for my newsletter"
+
+- so after that news cycle died down
 
 ---
 # Aftermath (6 months)
@@ -985,6 +982,7 @@ class: center
 - visualization
 
 ???
+- i kept working, for another 6 months
 - imported another 20k puzzles from haldiman collection
 - improved and automated my janky pipeline
 - came up with a workable visualization
@@ -999,7 +997,8 @@ class: center
 - $10/year
 
 ???
-- no dependencies
+- all of my code for this project is open source and on github
+- written mostly in Python3, with no dependencies
 - I figured out how to host the entire project on AWS for less than $10/year
 ---
 ## visualization - xd.saul.pw
@@ -1014,26 +1013,28 @@ class: center
 - X-axis: years
 - Y-axis: publications
 - color: duplications
-  - yellow: reprints
-  - pink: grids 25-50% similar (theme copying)
-  - red: different attributions, grids > 50% similar
-- bar graphs: visually comparable quantity
+  - yellow: reprints (same author)
+  - pink: are generally theme copies only
+  - red: grid duplication with different authors
+- within each publication-year square are bar graphs, broken out by day of the week
+-  this way, quantity can be directly visually compared
 
 ---
 .image-100[![visualization](images/xd-vis3.png)]
 ???
 # takeaways
-
-- the scope of the plagiarism was egregious but finite
-- completely overwhelmed the other instances, which I think are just as interesting
-- actually hadn't done it much in 2015
+- here is a zoomin to the damning portion of the visualization
+- you can see that the scope of the plagiarism was egregious but mostly finite
+- there are plenty of other potential instances of plagiarism, which I think are quite interesting
+- but they are completely overwhelmed by Timothy Parker's malfeasance
+- interestingly, he actually wasn't doing it much anymore when the scandal erupted
   - "only" 9 puzzle self-plagiarisms, and 3 theme reworkings ("gutted puzzles") from newsweek
 
-- in 2012, USAToday started running a puzzle on saturdays
-  - it's reprint day.  fine.
+- here, you can see an odd yellow/red line starting in 2012
+- which is when Timothy Parker and USAToday started running pure reprints of puzzles on saturdays
   - why are they half red?
   - they're copies of *other* plagiarized puzzles.
-  - not obvious before breakout by d-o-w
+  - this is not obvious before breakout by d-o-w
 ---
 class: center
 .image-100[![comparison](images/room-service.png)]
