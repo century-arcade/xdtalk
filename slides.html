@@ -747,14 +747,10 @@ class: center
 - these are theme answers
 - themes are like the backbone of most crossword puzzles
 - the punny grammatical overreaches that make people groan
-- interesting slice of culture
-- you can see some familiar idioms, FLASH IN THE PAN, TOOTH AND NAIL
-- what is HASTYPUDDING?  anyone know?
-   - i had never heard of it before
-   - turns out it has a couple of meanings, none of which are rude
-
-- looked into some of these duplications..
-- it looks like themes are not infrequently reused
+- they're an interesting slice of culture
+- you can see some familiar idioms here, FLASH IN THE PAN, TOOTH AND NAIL
+- so i looked into some of these duplications..
+- it looked like themes are reused more often than you might think
 
 ---
 # Identical non-theme rows?
@@ -788,11 +784,12 @@ class: center
 ???
 
 - turned out that many lines had duplicates in other puzzles
-- but they were not reprints; only some of the lines were duplicated.
 - so i used another standard tool, diff, to compare the .xd files
-- pulled on that thread, which kept me going
+- and that showed that were not actually reprints; only some of the puzzle was changed
+- even more, the attributions for the puzzles were different
+- so i pulled on that thread, which kept me going
 - led to another, and another
-- that weekend is kind of a blur
+- (that weekend is kind of a blur)
 - by the end I had found many interesting 'anomalies'
 ---
 .image-110[![nyt](images/nyt-diff.png)]
@@ -801,7 +798,8 @@ class: center
 - for instance, this was the largest timespan difference
 - originally published in the NYTimes in 1955 and credited to Jack Luzzato
 - a nearly identical grid was published in the NYT in 1984, 29 years later, credited to Daniel Girardi
-- only two letters in the grid changed
+- in this diff, colors indicate changes
+- only two letters in the grid have changed
 - but nearly every clue in the entire puzzle was rewritten
 ---
 class: middle, center
@@ -814,21 +812,21 @@ hd.make_table(xd1, xd2)
 ```
 ???
 - This diff output, btw, was made with just two lines of python code using difflib
-- this was enabled by having the data in a presentable format in the first place
+- this was enabled by having the data in a the presentable text format in the first place
 - it's not the prettiest, but it is completely functional
-- accessible to everyone, including non-technical people
+- and it's accessible to everyone, including non-technical people
 ---
 .image-110[![timburr](images/liz-gorski-without.png)]
 ???
 - here is another "anomaly" that I was very curious about
-- it turned that many of the puzzles had something in common
+- it turned that many of the duplicated puzzles had something in common
 ---
 .image-110[![timburr](images/liz-gorski.png)]
 ???
 - edited by a "Timothy Parker"
    - who was the editor of both Universal uClick and USA Today crosswords
-- I knew nothing about the crossword industry
-- I thought might be a fake name, a pseudonym for a syndicate of constructors
+- at the time, I knew nothing about the crossword industry
+- so I thought might be a fake name, a pseudonym for a syndicate of constructors
 - until I found his Wikipedia entry and his claim of a Guinness record for "most syndicated constructor"
 - I spent more than a few brain cycles trying to come up with reasons why his puzzles might be legitimately re-attributed
 
@@ -839,8 +837,8 @@ hd.make_table(xd1, xd2)
    - On the left, published by Universal uClick in 2006 (7 years earlier)
    - attributed to someone named "Tim Burr"
    - what was going on?
-   - why would a crossword syndicate publish an old crossword attributed to an obvious pseudonym,
-   -  and change the attribution to someone who really existed?
+   - why would a major newspaper republish an old crossword attributed to an obvious pseudonym,
+   -  and then change the attribution to someone who really existed?
 
 ---
 ### xd.saul.pw/diffs
@@ -868,7 +866,7 @@ hd.make_table(xd1, xd2)
 <b>I present this as a curiosity</b>... Please also pardon the 'interface'.
 </blockquote>
 ???
-- and I sent it to the crossword list
+- so three whole days after I posted to reddit/datsaets, I sent this to the crossword list
 - I pulled out 3 examples, the 2 we saw and one other
 - and said "I found some pairs of crosswords that are strikingly similar"
 - I wondered if "Timothy Parker might be a little loose with attribution"
@@ -892,6 +890,8 @@ class: middle, center
 - he would not have given it to me before #gridgate blew up
 - but since it had, he "asked his source for permission", and then did give it to me
 - again, it's a shame that this data does exist but is so difficult to obtain
+- anyway, I got the dataset
+
 ---
 class: center
 # The motherlode
@@ -901,7 +901,6 @@ class: center
 - Thanks to Barry Haldiman
 
 ???
-
 - holy forking shirtballs
 - I thought 30,000 crosswords was a lot
 - This collection had almost 80,000 puzzles in it
@@ -924,7 +923,7 @@ class: middle, center
 
 - I compared grids exhaustively, night and day
    - I would start a batch before going to sleep, and another before going to work
-- I discovered that week that managing 50,000 of anything is challenging
+- I discovered that week that managing 50,000 of anything is pretty challenging
 - esp under time pressure
 
 ---
@@ -1091,77 +1090,23 @@ class: center
 
 ???
 
-- 
----
-# Conclusion
-.em2[
-```
-Title: New York Times, Saturday, January 1, 1955
-Author: Anthony Morse
-Editor: Margaret Farrar
-Rebus: 1=HEART 2=DIAMOND 3=SPADE 4=CLUB
-Date: 1955-01-01
-```
-
-.left-column[
-```
-1ACHE#ADAM#2LIL
-BLUER#GULL#MATA
-EATIN#APEX#ICER
-ATAR#TILE#SNEAK
-TEN#MANI#ITE###
-##DRUB#CANASTAS
-FADED#BAGGY#OIL
-ONES#KATES#TUNA
-ETA#JOKER#JORUM
-SILLABUB#SOON##
-###ACE#RUIN#ARK
-3WORK#JINX#4MAN
-BIRD#WADS#SCENE
-ISLE#EDGE#PANEL
-DEER#BEET#ARTEL
-```
-]
-.right-column[
-```
-    A1. Sadness. ~ HEARTACHE
-    A6. Progenitor. ~ ADAM
-    A10. Mae West stand-by. ~ DIAMONDLIL
-    A14. Ultramarine plus. ~ BLUER
-    A15. Sea bird. ~ GULL
-    A16. ___ Hari. ~ MATA
-    A17. Stay home for dinner. ~ EATIN
-    A18. Peak. ~ APEX
-    A19. Deep freeze. ~ ICER
-    A20. Ralph Rackstraw, for instance. ~ ATAR
-    A21. Scrabble adjunct. ~ TILE
-    A22. A lead from a singleton. ~ SNEAK
-    A23. Lowest honor. ~ TEN
-    A24. Peanut: Spanish. ~ MANI
-    A25. Native of: Suffix. ~ ITE
-    A26. Administer a sound defeat. ~ DRUB
-    [...]
-```
-]
-]
-
-???
-
 - The simple .xd format was indeed instrumental in discovering this scandal.
-- if i had gone looking for it, i could have found it with other formats
-- but this made it so trivial to do some explorations, that it just 'fell out'
+- if i had gone looking for it, i suppose I could have found it with other formats
+- but i wasn't going to look for it
+- this format and structure made it so trivial to do these explorations, that it literally just 'fell out'
 
-- There's some low hanging fruit out there
-- When you don't know what you're looking for, I advocate a format-first approach
-- make data analysis easy, frictionless
-- and let me know what just falls out of it
+- These days, the xd code is still running nightly and collecting and comparing crosswords,
+- but I have don't have a whole lot of time to do much more with it
+- so, if anyone is interested in playing with an epic dataset, checked into a git repo
+- or if you want to play at being a crossword librarian and import some more puzzles
+- this is the "largest collection of crosswords on the planet".
 
+- Finally, I'd like to encourage you to explore your datasets in a less directed fashion
+- When you don't know what you're looking for, try a format-first approach
+- to make data exploration easy, frictionless
+- There's some low hanging fruit out there, just waiting to be discovered.
+- and if you find some, you should let me know what just fell out.
 
----
-class: middle, center
-
-
-???
 
 ---
 exclude: true
@@ -1182,6 +1127,7 @@ class: middle, center
 - but I have a job, and other projects like the awesome data exploration tool VisiData
 
 ---
+exclude: true
 class: center
 # Where are we now?
 
@@ -1198,10 +1144,6 @@ class: center
 ???
 
 - but I have a job, and other projects like the awesome data exploration tool VisiData
-- so I don't have a whole lot of time to move this project forward
-- but, if anyone is interested in playing with an epic dataset
-- or wants to play at being a crossword librarian and import some puzzles
-- this is the "largest collection of crosswords on the planet"
 
 ---
 exclude: true
@@ -1228,10 +1170,9 @@ class: center
 ## www: visidata.org
 
 ???
-- please, talk to me!  let's see what we can do.
-
-- thanks for listening to my talk!
-- remember, don't read the comments and don't feed the trolls.
+- I'd like to thank Anja for her support in putting together this talk.
+- and thanks for listening to my talk!
+- any questions?
     </textarea>
     <script src="remark-latest.min.js">
     </script>
